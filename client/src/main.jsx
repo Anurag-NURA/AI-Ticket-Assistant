@@ -4,9 +4,8 @@ import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
 import './index.css'
-import App from './App.jsx'
 import { Auth } from '@components'
-import { Home, Admin, Login, Signup, Ticket, Tickets, CreateTicket } from '@pages'
+import { Home, Admin, Login, Signup, Ticket, Tickets, CreateTicket, Settings, Profile } from '@pages'
 
 const router = createBrowserRouter([
   {
@@ -32,6 +31,14 @@ const router = createBrowserRouter([
       {
         path: "/tickets/:id",
         element: <Ticket />
+      },
+      {
+        path: "/settings",
+        element: <Settings />
+      },
+      {
+        path: "/profile",
+        element: <Profile />
       }
     ],
   },

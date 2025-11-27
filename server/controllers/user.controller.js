@@ -9,9 +9,9 @@ import { inngest } from "../inngest/client.js";
 //@access Public
 export const signup = async (req, res) => {
   try {
-    const { email, password, skills = [] } = req.body;
+    const { name, email, password, skills = [] } = req.body;
     const hashed = await bcrypt.hash(password, 10);
-    const user = await User.create({ email, password: hashed, skills });
+    const user = await User.create({ name, email, password: hashed, skills });
 
     //Fire Inngest Event
     await inngest.send({
@@ -29,6 +29,12 @@ export const signup = async (req, res) => {
     res.status(201).json({
       success: true,
       message: "User registered successfully",
+      user: {
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        skills: user.skills,
+      },
       token,
     });
   } catch (error) {
@@ -68,9 +74,16 @@ export const login = async (req, res) => {
       { _id: user._id, role: user.role },
       process.env.JWT_SECRET,
     );
+
     res.status(200).json({
       success: true,
       message: "Login successful",
+      user: {
+        name: user.name,
+        email: user.email,
+        role: user.role,
+        skills: user.skills,
+      },
       token,
     });
   } catch (error) {

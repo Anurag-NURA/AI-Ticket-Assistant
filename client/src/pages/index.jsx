@@ -5,3 +5,5 @@ export { Signup } from './Signup.jsx';
 export { Ticket } from './Ticket.jsx';
 export { Tickets } from './Tickets.jsx';
 export { CreateTicket } from './CreateTicket.jsx';
+export { Settings } from './Settings.jsx';
+export { Profile } from './Profile.jsx';
