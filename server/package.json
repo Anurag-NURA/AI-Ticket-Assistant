@@ -1,0 +1,28 @@
+{
+    "name": "server",
+    "module": "app.js",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "dev": "bun --watch app.js",
+        "inngest-dev": "npx inngest-cli@latest dev"
+    },
+    "devDependencies": {
+        "@types/bun": "latest"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "@inngest/agent-kit": "^0.13.2",
+        "bcrypt": "^6.0.0",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.5",
+        "dotenv": "^17.2.3",
+        "express": "^5.1.0",
+        "inngest": "^3.45.1",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.19.4",
+        "nodemailer": "^7.0.10"
+    }
+}
